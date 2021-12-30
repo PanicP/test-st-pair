@@ -34,11 +34,6 @@ export const priceSlice = createSlice({
             .addCase(getAllPriceAsync.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.allData = [...action.payload.data]
-                // return {
-                //     ...state,
-                //     isLoading: false,
-                //     allData: [...action.payload.data]
-                // }
             })
     },
 })
