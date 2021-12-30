@@ -2,11 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './components/counter/Counter';
 import './App.css';
+import Main from 'components/pages/Main'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Main/>
+      <span>app</span>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,7 +53,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }
