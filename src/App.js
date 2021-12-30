@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <Main/>
-      <span>app</span>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
