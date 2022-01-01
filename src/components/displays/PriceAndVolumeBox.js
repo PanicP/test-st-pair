@@ -8,16 +8,16 @@ const PriceAndVolumeBox = ({ using, pairText, price, volume }) => {
         <div />
         <div className="priceandvolumebox-container-inner">
             <div>
-                <p className="using">{using}</p>
+                <p className="priceandvolumebox-using">{using}</p>
             </div>
             <div>
-                <p>{pairText}</p>
+                <p className="priceandvolumebox-pair">{pairText}</p>
             </div>
             <div>
-                <p>{price}</p>
+                <p className="priceandvolumebox-price">{price}</p>
             </div>
             <div>
-                <p>Volume: {volume}</p>
+                <p className="priceandvolumebox-volume">Volume: {volume}</p>
             </div>
         </div>
         <div />

@@ -4,15 +4,25 @@
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 30% 40% 30%;
-    // display: flex;
-    // flex-direction: column;
+
     .priceandvolumebox-container-inner {
         border: 1px solid black;
         border-radius: 8px;
         padding: 16px;
-    }
-}
+        background-color: #ffffff;
 
-.using {
-    text-align: center;
+        .priceandvolumebox-using {
+            text-align: center;
+        }
+
+        .priceandvolumebox-price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .priceandvolumebox-volume {
+            color: rgb(190, 189, 189);
+            font-weight: bold;
+        }
+    }
 }
