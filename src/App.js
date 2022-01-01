@@ -1,13 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './components/counter/Counter';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import { Counter } from './components/counter/Counter'
+// import './App.css'
 import Main from 'components/pages/Main'
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <Main />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
@@ -54,7 +54,7 @@ function App() {
         </span>
       </header> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

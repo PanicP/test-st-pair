@@ -1,0 +1,14 @@
+$satangblue : #0C163D;
+$lightblue : #40a9ff;
+
+.ant-btn {
+    // border: 1px solid $satangBlue !important;
+    width: 100%;
+    margin: 16px 0;
+    
+    &.selected {
+        background-color: $satangblue !important;
+        color: $lightblue ;
+        border-color: $lightblue;
+    }
+}

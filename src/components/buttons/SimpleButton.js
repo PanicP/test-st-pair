@@ -1,9 +1,10 @@
 import { Button } from 'antd'
+import './SimpleButton.scss'
 
-const SimpleButton = ({ text, onClick }) => {
+const SimpleButton = ({ text, onClick, isSelected }) => {
 
     return <>
-        <Button onClick={onClick}>
+        <Button className={ isSelected && 'selected' } onClick={onClick}>
             { text }
         </Button>
     </>

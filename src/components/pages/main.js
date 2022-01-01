@@ -3,6 +3,7 @@ import SimpleButton from "components/buttons/SimpleButton"
 import PriceAndVolumeBox from "components/displays/PriceAndVolumeBox"
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import './Main.scss'
 
 const mapPair = {
     "btc_thb": "BTC/THB",
@@ -50,19 +51,47 @@ const Main = () => {
     }, [messages])
 
 
-    return <>
-        <div>selected : {currentPair}</div>
-        <SimpleButton text="BTC/THB" onClick={() => dispatch(setCurrentPair("btc_thb"))} />
-        <SimpleButton text="BUSD/THB" onClick={() => dispatch(setCurrentPair("busd_thb"))} />
-        <SimpleButton text="USDT/THB" onClick={() => dispatch(setCurrentPair("usdt_thb"))} />
-        <PriceAndVolumeBox pairText={mapPair[pairData?.symbol]} price={pairData?.lastPrice} volume={pairData?.volume} />
+    return (
+        <div className="main">
+            <div className="submain">
+                {/* <div>selected : {currentPair}</div> */}
+                <div />
+                <div className="container">
+                    <div className="button-container">
+                        <div />
+                        <div className="button-container-inner">
+                            <SimpleButton text="BTC/THB" isSelected={pairData?.symbol === 'btc_thb'} onClick={() => dispatch(setCurrentPair("btc_thb"))} />
+                            <SimpleButton text="BUSD/THB" isSelected={pairData?.symbol === 'busd_thb'} onClick={() => dispatch(setCurrentPair("busd_thb"))} />
+                            <SimpleButton text="USDT/THB" isSelected={pairData?.symbol === 'usdt_thb'} onClick={() => dispatch(setCurrentPair("usdt_thb"))} />
+                        </div>
+                        <div />
+                    </div>
+                    <PriceAndVolumeBox using="using API" pairText={mapPair[pairData?.symbol]} price={pairData?.lastPrice} volume={pairData?.volume} />
+                </div>
+                <div />
 
-        <div>selected : {currentPair}</div>
-        <SimpleButton text="BTC/THB" onClick={() => dispatch(setCurrentPair("btc_thb"))} />
-        <SimpleButton text="BUSD/THB" onClick={() => dispatch(setCurrentPair("busd_thb"))} />
-        <SimpleButton text="USDT/THB" onClick={() => dispatch(setCurrentPair("usdt_thb"))} />
-        <PriceAndVolumeBox pairText={mapPair[messages?.s]} price={messages?.c} volume={messages?.q} />
-    </>
+            </div>
+
+            <div className="submain">
+                {/* <div>selected : {currentPair}</div> */}
+                <div />
+                <div className="container">
+                    <div className="button-container">
+                        <div />
+                        <div className="button-container-inner">
+                            <SimpleButton text="BTC/THB" isSelected={pairData?.symbol === 'btc_thb'} onClick={() => dispatch(setCurrentPair("btc_thb"))} />
+                            <SimpleButton text="BUSD/THB" isSelected={pairData?.symbol === 'busd_thb'} onClick={() => dispatch(setCurrentPair("busd_thb"))} />
+                            <SimpleButton text="USDT/THB" isSelected={pairData?.symbol === 'usdt_thb'} onClick={() => dispatch(setCurrentPair("usdt_thb"))} />
+                        </div>
+                        <div />
+                    </div>
+                    <PriceAndVolumeBox using="using Web Socket" pairText={mapPair[messages?.s]} price={messages?.c} volume={messages?.q} />
+                </div>
+                <div />
+            </div>
+
+        </div>
+    )
 }
 
 export default Main
