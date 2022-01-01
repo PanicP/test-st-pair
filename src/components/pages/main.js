@@ -1,8 +1,8 @@
-import { getAllPriceAsync, selectCurrentPair, selectPairData, selectPriceIsLoading, setCurrentPair } from "app/slices/priceSlice"
-import { selectCurrentPairWs, selectPairDataWs, selectPriceIsLoadingWs, setCurrentPairWs, setDataWs } from "app/slices/priceWsSlice"
+import { getAllPriceAsync, selectCurrentPair, selectPairData, setCurrentPair } from "app/slices/priceSlice"
+import { selectCurrentPairWs, selectPairDataWs, setCurrentPairWs, setDataWs } from "app/slices/priceWsSlice"
 import SimpleButton from "components/buttons/SimpleButton"
 import PriceAndVolumeBox from "components/displays/PriceAndVolumeBox"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import './Main.scss'
 
@@ -16,12 +16,12 @@ const Main = () => {
 
     const dispatch = useDispatch()
     const pairData = useSelector(selectPairData)
-    const isLoading = useSelector(selectPriceIsLoading)
     const currentPair = useSelector(selectCurrentPair)
 
     const pairDataWs = useSelector(selectPairDataWs)
-    const isLoadingWs = useSelector(selectPriceIsLoadingWs)
     const currentPairWs = useSelector(selectCurrentPairWs)
+
+    const webSocket = useRef(null)
 
     useEffect(() => {
         if (currentPair !== '') {
@@ -32,30 +32,19 @@ const Main = () => {
 
             return () => clearInterval(interval)
         }
-    }, [currentPair])
-
-    const [messages, setMessages] = useState([])
-    const webSocket = useRef(null)
+    }, [currentPair, dispatch])
 
     useEffect(() => {
         if (currentPairWs !== '') {
             webSocket.current = new WebSocket("wss://ws.satangcorp.com/ws/!miniTicker@arr")
             webSocket.current.onmessage = (message) => {
-                // console.log(message.data?.find(data => data))
-                // setMessages(JSON.parse(message.data).find(data => data.s === currentPair))
-                // console.log(JSON.parse(message.data).find(data => data.s === currentPairWs))
                 dispatch(setDataWs(JSON.parse(message.data)))
             }
 
             return () => webSocket.current.close()
         }
 
-    }, [currentPairWs])
-
-    useEffect(() => {
-        // console.log(messages?.find(data => true))
-        // console.log(typeof messages, messages)
-    }, [messages])
+    }, [currentPairWs, dispatch])
 
 
     return (

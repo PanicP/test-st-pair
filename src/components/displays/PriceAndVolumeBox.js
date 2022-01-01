@@ -11,13 +11,13 @@ const PriceAndVolumeBox = ({ using, pairText, price, volume }) => {
                 <p className="priceandvolumebox-using">{using}</p>
             </div>
             <div>
-                <p className="priceandvolumebox-pair">{pairText}</p>
+                <p className="priceandvolumebox-pair">{pairText ? pairText : '-/-'}</p>
             </div>
             <div>
-                <p className="priceandvolumebox-price">{price}</p>
+                <p className="priceandvolumebox-price">{price ? price : '0'}</p>
             </div>
             <div>
-                <p className="priceandvolumebox-volume">Volume: {volume}</p>
+                <p className="priceandvolumebox-volume">Volume: {volume ? volume : '0'}</p>
             </div>
         </div>
         <div />

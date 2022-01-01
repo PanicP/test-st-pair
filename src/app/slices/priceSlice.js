@@ -44,13 +44,6 @@ export const selectPairData = (state) => state.price.allData?.find(data => data.
 export const selectPriceIsLoading = (state) => state.price.isLoading
 export const selectCurrentPair = (state) => state.price.currentPair
 
-// export const incrementIfOdd = (amount) => (dispatch, getState) => {
-//     const currentValue = selectCount(getState())
-//     if (currentValue % 2 === 1) {
-//         dispatch(incrementByAmount(amount))
-//     }
-// }
-
 export const { setCurrentPair } = priceSlice.actions
 
 export default priceSlice.reducer
